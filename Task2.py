@@ -1,9 +1,8 @@
 import tkinter 
-from fractions import Fractions
+from fractions import Fraction
 
 r = tkinter.Tk()
-img = tkinter.PhotoImage(File='calculator.ico')
-r.iconphoto(False,img)
+
 r.title("CALCULATOR")
 
 r.geometry("260x350")
@@ -12,6 +11,7 @@ r.config(bg="#3b3b3b")
 exp=""
 f= True
 calculator=False
+calculated=0
 
 
 
@@ -79,7 +79,7 @@ def numerator(t):
 
 
     if t=="+":
-        exp+="/"
+        exp+="+"
         return
     if t=="x":
         exp+="*"
@@ -107,21 +107,17 @@ def click(event):
         elif t=="=":
             calculate()
         else:
-            numoperator(t)
+            numerator(t)
     else:
         if t=="C":
-            clear():
+            clear()
 
 
 f1 = tkinter.Frame(r,bg="black")
 
-img = tkinter.PhotoImage(file='image.png')
-img2=img.subsample(5)
-heading=tkinter.Label(f1,image=img2,bg="black")
-heading.pack(fill="x")
 
 screenvar=tkinter.StringVar()
-screenentry=tkinter.Entry(f1,width=30,text=screenvar.fg="black",bg="#e5f2e5",font=("Eurostile",15,"bold"),justify="right")
+screenentry=tkinter.Entry(f1,width=30,text=screenvar,fg="black",bg="#e5f2e5",font=("Eurostile",15,"bold"),justify="right")
 screenentry.pack(fill="x")
 
 
@@ -132,20 +128,20 @@ f1.pack(fill="x")
 f2=tkinter.Frame(r,bg="#3b3b3b")
 button=tkinter.Button(f2,text="OFF",height=1,width=4,fg="white",bg="black",font=("Arial",10,"bold"),command=quit)
 button.grid(row=0,column=0,padx=8,pady=8)
-button.tkinter.Button(f2,text="S<>D",height=1,width=4,fg="white",bg="black",font=("Arial",10,"bold"))
+button=tkinter.Button(f2,text="S<>D",height=1,width=4,fg="white",bg="black",font=("Arial",10,"bold"))
 button.grid(row=0,column=1,padx=8,pady=8)
 button.bind("<Button-1>",click)
 button=tkinter.Button(f2,text="%",height=1,width=4,fg="white",bg="black",font=("Arial",10,"bold"))
 button.grid(row=0,column=2,padx=8,pady=8)
 button.bind("<Button-1>",click)
-button=tkinter.Button(f2,text="+",height=1,width=4,fg="white",bg="black",font=("Arial",10,"bold"))
+button=tkinter.Button(f2,text="/",height=1,width=4,fg="white",bg="black",font=("Arial",10,"bold"))
 button.grid(row=0,column=3,padx=8,pady=8)
 button.bind("<Button-1>",click)
 
 button=tkinter.Button(f2,text="7",height=1,width=4,fg="white",bg="black",font=("Arial",10,"bold"))
 button.grid(row=1,column=0,padx=8,pady=8)
 button.bind("<Button-1>",click)
-button.tkinter.Button(f2,text="8",height=1,width=4,fg="white",bg="black",font=("Arial",10,"bold"))
+button=tkinter.Button(f2,text="8",height=1,width=4,fg="white",bg="black",font=("Arial",10,"bold"))
 button.grid(row=1,column=1,padx=8,pady=8)
 button.bind("<Button-1>",click)
 button=tkinter.Button(f2,text="9",height=1,width=4,fg="white",bg="black",font=("Arial",10,"bold"))
